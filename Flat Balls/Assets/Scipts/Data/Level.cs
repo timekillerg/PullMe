@@ -7,6 +7,7 @@ public class Level
 
     public Level() { }
 
+
     public void InitializeLevel_1()
     {
         Figures = new List<Figure>
