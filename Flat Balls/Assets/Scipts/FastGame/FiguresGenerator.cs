@@ -45,16 +45,21 @@ public class FiguresGenerator : MonoBehaviour
 
     private void DestroyOldGameObject()
     {
-        var oldFigure = new Figure(GameData.Figures.First());
-        Destroy(GameData.Figures.First().GameObject);
-        GameData.InitializeData();
-        GameData.Figures.Add(oldFigure);
+        if (GameData.Figures.Any())
+        {
+            var oldFigure = new Figure(GameData.Figures.First());
+            if (GameData.Figures.First().GameObject != null)
+                oldFigure.Vector2 = GameData.Figures.First().GameObject.transform.position;
+            Destroy(GameData.Figures.First().GameObject);
+            GameData.InitializeData();
+            GameData.Figures.Add(oldFigure);
+        }
     }
 
     private void AddDuplicateFigure()
     {
         var oldFigure = GameData.Figures.First();
-        var newFigure = new Figure(oldFigure) { Position = GameData.GetNewPosition(oldFigure.Position) };
+        var newFigure = new Figure(oldFigure) { Vector2 = GameData.GetNewPosition(oldFigure.Vector2) };
         GameData.Figures.Add(newFigure);
         GameData.Lines.Add(new Line(oldFigure.Name, newFigure.Name));
     }
@@ -72,8 +77,8 @@ public class FiguresGenerator : MonoBehaviour
                     {
                         figure.IsTriedToDevide = false;
                         figure.Number = figure.Number / 2;
-                        var newFigure = new Figure(figure) { Position = GameData.GetNewPosition(figure.Position) };
-                        if (newFigure.Position != Vector2.zero)
+                        var newFigure = new Figure(figure) { Vector2 = GameData.GetNewPosition(figure.Vector2) };
+                        if (newFigure.Vector2 != Vector2.zero)
                         {
                             GameData.Figures.Add(newFigure);
                             GameData.Lines.Add(new Line(figure.Name, newFigure.Name));
@@ -99,7 +104,7 @@ public class FiguresGenerator : MonoBehaviour
                 var figureA = GameData.Figures[Random.Range(0, GameData.Figures.Count() - 1)];
                 var figureB = GameData.Figures[Random.Range(0, GameData.Figures.Count() - 1)];
                 if (figureA.Name != figureB.Name && !GameData.IsFiguresConnected(figureA.Name, figureB.Name)
-                    && Vector2.Distance(figureA.Position, figureB.Position) < 3f)
+                    && Vector2.Distance(figureA.Vector2, figureB.Vector2) < 3f)
                 {
                     GameData.Lines.Add(new Line(figureA.Name, figureB.Name));
                     fakesCount--;
@@ -113,7 +118,7 @@ public class FiguresGenerator : MonoBehaviour
         foreach (var figure in GameData.Figures)
         {
             FigureGameObject.GetComponent<FigureNumberController>().Number = figure.Number;
-            var createdGameObject = (GameObject)Instantiate(FigureGameObject, figure.Position, Quaternion.identity);
+            var createdGameObject = (GameObject)Instantiate(FigureGameObject, figure.Vector2, Quaternion.identity);
             createdGameObject.name = figure.Name;
             createdGameObject.transform.parent = ParentFigure.transform;
             figure.GameObject = createdGameObject;

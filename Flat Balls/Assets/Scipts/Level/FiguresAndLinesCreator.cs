@@ -25,7 +25,7 @@ public class FiguresAndLinesCreator : MonoBehaviour
         foreach (var figure in GameData.Figures)
         {
             FigureGameObject.GetComponent<FigureNumberController>().Number = figure.Number;
-            var createdFigure = Instantiate(FigureGameObject, figure.Position, Quaternion.identity);
+            var createdFigure = Instantiate(FigureGameObject, figure.Vector2, Quaternion.identity);
             createdFigure.name = NewName();
             figure.Name = createdFigure.name;
             figure.GameObject = (GameObject)createdFigure;

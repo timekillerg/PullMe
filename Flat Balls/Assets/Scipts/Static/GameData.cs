@@ -47,7 +47,7 @@ public static class GameData
 
     private static bool IsNotOnMinimalDistance(Vector2 position)
     {
-        return Figures.Any(figure => (Vector2.Distance(figure.Position, position) < MinimalDistance));
+        return Figures.Any(figure => (Vector2.Distance(figure.Vector2, position) < MinimalDistance));
     }
 
     public static Status CurrentStatus { get; set; }
