@@ -6,11 +6,13 @@ public class FigureTouchListener : MonoBehaviour
     private Vector2 _touchPosition;
     public float FigureMovingSpeed = 1f;
     private const float MinimalDistance = 0.01f;
+    protected Animator Animator;
 
     void Start()
     {
         _startPosition = transform.position;
         _touchPosition = _startPosition;
+        Animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -34,18 +36,21 @@ public class FigureTouchListener : MonoBehaviour
     }
 
     void OnMouseDown()
-    {
+    {   
         ChangeMousePositionAbsolute();
+        Animator.SetBool("IsTouched", true);
     }
 
     void OnMouseDrag()
     {
         ChangeMousePositionAbsolute();
+        Animator.SetBool("IsTouched", true);
     }
 
     void OnMouseUp()
     {
         _touchPosition = _startPosition;
+        Animator.SetBool("IsTouched", false);
     }
 
     private void ChangeMousePositionAbsolute()

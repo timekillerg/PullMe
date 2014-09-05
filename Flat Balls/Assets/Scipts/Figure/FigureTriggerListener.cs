@@ -25,6 +25,7 @@ public class FigureTriggerListener : MonoBehaviour
         {
             _otherNumberController = other.gameObject.GetComponent<FigureNumberController>();
             _isTriggered = true;
+            other.GetComponent<Animator>().SetBool("IsTriggered", _isTriggered);
         }
     }
 
@@ -32,6 +33,7 @@ public class FigureTriggerListener : MonoBehaviour
     {
         _otherNumberController = null;
         _isTriggered = false;
+        other.GetComponent<Animator>().SetBool("IsTriggered", _isTriggered);
     }
 
     void OnMouseUp()
