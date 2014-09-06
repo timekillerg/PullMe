@@ -4,10 +4,12 @@ using UnityEngine;
 
 public static class GameData
 {
+    private const float MinimalDistance = 1.4f;
+
     public static IList<Line> Lines { get; set; }
     public static IList<Figure> Figures { get; set; }
-
-    private const float MinimalDistance = 1.4f;
+    public static Status CurrentStatus { get; set; }
+    public static int Scores { get; set; }
 
     private static readonly Vector2[] FigurePositionVectors =
     {
@@ -49,9 +51,7 @@ public static class GameData
     {
         return Figures.Any(figure => (Vector2.Distance(figure.Vector2, position) < MinimalDistance));
     }
-
-    public static Status CurrentStatus { get; set; }
-
+    
     public static bool IsFiguresConnected(string nameA, string nameB)
     {
         var isConnected = Lines.Any(l => (l.FigureNameA == nameA && l.FigureNameB == nameB)

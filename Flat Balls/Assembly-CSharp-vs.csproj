@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scipts\Line\Line.cs" />
      <Compile Include="Assets\Scipts\Line\LineController.cs" />
      <Compile Include="Assets\Scipts\Other\GameFieldScroller.cs" />
+     <Compile Include="Assets\Scipts\Other\OuputScores.cs" />
      <Compile Include="Assets\Scipts\Other\RestartInitiator.cs" />
      <Compile Include="Assets\Scipts\Static\Enums\Status.cs" />
      <Compile Include="Assets\Scipts\Static\GameData.cs" />

@@ -14,6 +14,7 @@ public class FiguresGenerator : MonoBehaviour
     public void Start()
     {
         _isGeneration = false;
+        GameData.Scores = 0;
         GameData.InitializeData();
         GameData.Figures.Add(new Figure(0, 0, 2));
     }
@@ -29,18 +30,24 @@ public class FiguresGenerator : MonoBehaviour
     private IEnumerator CreateFigures()
     {
         _isGeneration = true;
+
         DestroyOldGameObject();
-        if (_generatonSubStep == 4)
-            AddDuplicateFigure();
-        _generatonSubStep--;
+        AddDuplicateFigure();
         DevideFigures();
         AddFakeLines();
         InstantiateFigures();
         InstantiateLines();
+        ChangeGenerationSubStep();
+
         _isGeneration = false;
+        yield return null;
+    }
+
+    private void ChangeGenerationSubStep()
+    {
+        _generatonSubStep--;
         if (_generatonSubStep == 0)
             _generatonSubStep = 4;
-        yield return null;
     }
 
     private void DestroyOldGameObject()
@@ -48,9 +55,10 @@ public class FiguresGenerator : MonoBehaviour
         if (GameData.Figures.Any())
         {
             var oldFigure = new Figure(GameData.Figures.First());
-            if (GameData.Figures.First().GameObject != null)
-                oldFigure.Vector2 = GameData.Figures.First().GameObject.transform.position;
-            Destroy(GameData.Figures.First().GameObject);
+            var figureGameObject = GameData.Figures.First().GameObject;
+            if (figureGameObject != null)
+                Destroy(figureGameObject);
+            oldFigure.Vector2 = Vector2.zero;
             GameData.InitializeData();
             GameData.Figures.Add(oldFigure);
         }
@@ -58,10 +66,13 @@ public class FiguresGenerator : MonoBehaviour
 
     private void AddDuplicateFigure()
     {
-        var oldFigure = GameData.Figures.First();
-        var newFigure = new Figure(oldFigure) { Vector2 = GameData.GetNewPosition(oldFigure.Vector2) };
-        GameData.Figures.Add(newFigure);
-        GameData.Lines.Add(new Line(oldFigure.Name, newFigure.Name));
+        if (_generatonSubStep == 4)
+        {
+            var oldFigure = GameData.Figures.First();
+            var newFigure = new Figure(oldFigure) { Vector2 = GameData.GetNewPosition(oldFigure.Vector2) };
+            GameData.Figures.Add(newFigure);
+            GameData.Lines.Add(new Line(oldFigure.Name, newFigure.Name));
+        }
     }
 
     private void DevideFigures()
@@ -73,7 +84,7 @@ public class FiguresGenerator : MonoBehaviour
                 if (!figure.IsTriedToDevide)
                 {
                     figure.IsTriedToDevide = true;
-                    if (Random.Range(0, 5) >= _generatonSubStep && figure.Number >= 2)
+                    if (Random.Range(0, 6) >= _generatonSubStep && figure.Number >= 2)
                     {
                         figure.IsTriedToDevide = false;
                         figure.Number = figure.Number / 2;
