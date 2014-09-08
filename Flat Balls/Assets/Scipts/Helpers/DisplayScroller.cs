@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GameFieldScroller : MonoBehaviour
+public class DisplayScroller : MonoBehaviour
 {
     public GameObject FiguresParent;
     private Vector2 _touchPosition;

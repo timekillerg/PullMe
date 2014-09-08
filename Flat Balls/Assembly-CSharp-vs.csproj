@@ -46,25 +46,26 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scipts\Data\Level.cs" />
-     <Compile Include="Assets\Scipts\FastGame\FiguresGenerator.cs" />
-     <Compile Include="Assets\Scipts\Figure\Figure.cs" />
-     <Compile Include="Assets\Scipts\Figure\FigureAnglesController.cs" />
-     <Compile Include="Assets\Scipts\Figure\FigureNumberController.cs" />
-     <Compile Include="Assets\Scipts\Figure\FigureTouchListener.cs" />
-     <Compile Include="Assets\Scipts\Figure\FigureTriggerListener.cs" />
-     <Compile Include="Assets\Scipts\Level\AnimationsController.cs" />
-     <Compile Include="Assets\Scipts\Level\FiguresAndLinesCreator.cs" />
-     <Compile Include="Assets\Scipts\Line\DrawLineController.cs" />
-     <Compile Include="Assets\Scipts\Line\DrawLineInitiator.cs" />
-     <Compile Include="Assets\Scipts\Line\Line.cs" />
-     <Compile Include="Assets\Scipts\Line\LineController.cs" />
-     <Compile Include="Assets\Scipts\Other\GameFieldScroller.cs" />
-     <Compile Include="Assets\Scipts\Other\OuputScores.cs" />
-     <Compile Include="Assets\Scipts\Other\RestartInitiator.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Figure\Base\Figure.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Figure\FigureAnglesController.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Figure\FigureNumberController.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Figure\FigureTouchListener.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Figure\FigureTriggerListener.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Line\Base\Line.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Line\DrawLineController.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Line\DrawLineInitiator.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Line\LineController.cs" />
+     <Compile Include="Assets\Scipts\Game\Main\AnimationsController.cs" />
+     <Compile Include="Assets\Scipts\Game\Main\FastGameModeController.cs" />
+     <Compile Include="Assets\Scipts\Game\Main\HistoryModeController.cs" />
+     <Compile Include="Assets\Scipts\Helpers\DecimalSpriteRendener.cs" />
+     <Compile Include="Assets\Scipts\Helpers\DisplayScroller.cs" />
+     <Compile Include="Assets\Scipts\Helpers\OuputScores.cs" />
+     <Compile Include="Assets\Scipts\Helpers\RestartInitiator.cs" />
      <Compile Include="Assets\Scipts\Static\Enums\Status.cs" />
-     <Compile Include="Assets\Scipts\Static\GameData.cs" />
-     <Compile Include="Assets\Scipts\Static\NewLineData.cs" />
+     <Compile Include="Assets\Scipts\Static\Game\GameData.cs" />
+     <Compile Include="Assets\Scipts\Static\Game\NewLineData.cs" />
+     <Compile Include="Assets\Scipts\Static\Levels\Level.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

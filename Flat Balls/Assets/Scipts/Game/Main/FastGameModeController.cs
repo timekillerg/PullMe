@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FiguresGenerator : MonoBehaviour
+public class FastGameModeController : MonoBehaviour
 {
     public GameObject FigureGameObject;
     public GameObject LineGameObject;

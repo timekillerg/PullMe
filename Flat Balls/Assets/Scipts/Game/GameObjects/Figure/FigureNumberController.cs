@@ -4,30 +4,32 @@ using UnityEngine;
 public class FigureNumberController : MonoBehaviour
 {
     public int Number = 1;
-    public SpriteRenderer NumberSpriteRenderer;
-    public Sprite[] AllNumbers;
     private const char TagSeparator = ' ';
+    public GameObject DecimalRendererObject;
 
     void Start()
     {
         while (Number > GetNumber())
-            SwitchNextNumber();
+            SwitchNextTag();
+        SetNumberSprite();
     }
 
     public void SwitchNextNumber()
-    {       
-        SwitchNextSprite();
+    {
         SwitchNextTag();
+        SetNumberSprite();
     }
 
-    private void SwitchNextSprite()
+    private void SetNumberSprite()
     {
-        for (var i = 0; i < (AllNumbers.Length - 1); i++)
-            if (NumberSpriteRenderer.sprite == AllNumbers[i])
+        if (DecimalRendererObject != null)
+        {
+            var decimalRendererScript = DecimalRendererObject.GetComponent<DecimalSpriteRendener>();
+            if (decimalRendererScript != null)
             {
-                NumberSpriteRenderer.sprite = AllNumbers[i + 1];
-                break;
+                decimalRendererScript.SetValue(GetNumber());
             }
+        }
     }
 
     private void SwitchNextTag()

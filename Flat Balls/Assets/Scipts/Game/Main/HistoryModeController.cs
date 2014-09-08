@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FiguresAndLinesCreator : MonoBehaviour
+public class HistoryModeController : MonoBehaviour
 {
     public GameObject FigureGameObject;
     public GameObject LineGameObject;
