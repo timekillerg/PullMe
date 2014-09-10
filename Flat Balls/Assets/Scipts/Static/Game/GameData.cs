@@ -8,7 +8,7 @@ public static class GameData
 
     public static IList<Line> Lines { get; set; }
     public static IList<Figure> Figures { get; set; }
-    public static Status CurrentStatus { get; set; }
+    public static Status ?CurrentStatus { get; set; }
     public static int Scores { get; set; }
 
     private static readonly Vector2[] FigurePositionVectors =

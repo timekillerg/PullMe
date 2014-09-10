@@ -58,10 +58,12 @@
      <Compile Include="Assets\Scipts\Game\Main\AnimationsController.cs" />
      <Compile Include="Assets\Scipts\Game\Main\FastGameModeController.cs" />
      <Compile Include="Assets\Scipts\Game\Main\HistoryModeController.cs" />
+     <Compile Include="Assets\Scipts\Helpers\AllController.cs" />
+     <Compile Include="Assets\Scipts\Helpers\ButtonAnimatorController.cs" />
      <Compile Include="Assets\Scipts\Helpers\DecimalSpriteRendener.cs" />
      <Compile Include="Assets\Scipts\Helpers\DisplayScroller.cs" />
+     <Compile Include="Assets\Scipts\Helpers\GameButtonController.cs" />
      <Compile Include="Assets\Scipts\Helpers\OuputScores.cs" />
-     <Compile Include="Assets\Scipts\Helpers\RestartInitiator.cs" />
      <Compile Include="Assets\Scipts\Static\Enums\Status.cs" />
      <Compile Include="Assets\Scipts\Static\Game\GameData.cs" />
      <Compile Include="Assets\Scipts\Static\Game\NewLineData.cs" />

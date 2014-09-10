@@ -36,21 +36,24 @@ public class FigureTouchListener : MonoBehaviour
     }
 
     void OnMouseDown()
-    {   
+    {
         ChangeMousePositionAbsolute();
-        Animator.SetBool("IsTouched", true);
+        if (Animator != null)
+            Animator.SetBool("IsTouched", true);
     }
 
     void OnMouseDrag()
     {
         ChangeMousePositionAbsolute();
-        Animator.SetBool("IsTouched", true);
+        if (Animator != null)
+            Animator.SetBool("IsTouched", true);
     }
 
     void OnMouseUp()
     {
         _touchPosition = _startPosition;
-        Animator.SetBool("IsTouched", false);
+        if (Animator != null)
+            Animator.SetBool("IsTouched", false);
     }
 
     private void ChangeMousePositionAbsolute()

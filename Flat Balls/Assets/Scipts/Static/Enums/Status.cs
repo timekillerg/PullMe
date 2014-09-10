@@ -4,5 +4,6 @@
     Play,
     DrawLine,
     DragParent,
-    Restart
+    Restart,
+    Menu
 }

@@ -26,6 +26,7 @@ public class DisplayScroller : MonoBehaviour
 
     void OnMouseDown()
     {
+        Debug.Log("DisplayScroller");
         GameData.CurrentStatus = Status.DragParent;
         var pz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _touchPosition = pz;
