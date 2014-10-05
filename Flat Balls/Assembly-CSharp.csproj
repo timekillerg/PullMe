@@ -39,15 +39,17 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>H:/Program files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>H:/Program files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scipts\Game\GameObjects\Figure\Base\Figure.cs" />
      <Compile Include="Assets\Scipts\Game\GameObjects\Figure\FigureAnglesController.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Figure\FigureBackup.cs" />
+     <Compile Include="Assets\Scipts\Game\GameObjects\Figure\FigureBackupController.cs" />
      <Compile Include="Assets\Scipts\Game\GameObjects\Figure\FigureNumberController.cs" />
      <Compile Include="Assets\Scipts\Game\GameObjects\Figure\FigureTouchListener.cs" />
      <Compile Include="Assets\Scipts\Game\GameObjects\Figure\FigureTriggerListener.cs" />
@@ -64,6 +66,7 @@
      <Compile Include="Assets\Scipts\Helpers\DisplayScroller.cs" />
      <Compile Include="Assets\Scipts\Helpers\GameButtonController.cs" />
      <Compile Include="Assets\Scipts\Helpers\OuputScores.cs" />
+     <Compile Include="Assets\Scipts\Helpers\UndoController.cs" />
      <Compile Include="Assets\Scipts\Static\Enums\Status.cs" />
      <Compile Include="Assets\Scipts\Static\Game\GameData.cs" />
      <Compile Include="Assets\Scipts\Static\Game\NewLineData.cs" />

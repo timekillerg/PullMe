@@ -53,6 +53,9 @@ public class FigureTriggerListener : MonoBehaviour
         if (_isTriggered && _isTouched && _otherNumberController != null && _otherNumberController.CompareTag(tag)
             && GameData.IsFiguresConnected(_otherNumberController.name, gameObject.name))
         {
+			var thisFigures = GameData.Figures.Where(f => f.Name == gameObject.name).ToList();
+			var thisFigures1 = GameData.Figures.Where(f => f.Name == _otherNumberController.name).ToList();
+			UndoController._backupController.AddFigures(thisFigures[0], thisFigures1[0]);
             _otherNumberController.SwitchNextNumber();
             DestroyFigure();
         }
@@ -70,6 +73,7 @@ public class FigureTriggerListener : MonoBehaviour
             GameData.Scores += figures.First().Number;
             GameData.Figures.Remove(figures.First());
         }
-        Destroy(gameObject);
+      //  Destroy(gameObject);
+		gameObject.SetActive (false);
     }
 }
